@@ -1,0 +1,496 @@
+🔧 What is DevOps?
+##########################################
+DevOps is a combination of two words:
+
+Dev = Development (writing code)
+
+Ops = Operations (managing infrastructure, deployment, and monitoring)
+
+👉 DevOps is a culture, set of practices, and tools that aim to:
+
+Bridge the gap between development and operations teams, so software can be built, tested, and released faster, more reliably, and continuously.
+
+
+🎯 Main Goals of DevOps
+#####################################
+Faster delivery of software
+
+Automation of processes (build, test, deploy)
+
+Improved collaboration between teams
+
+Continuous integration and continuous deployment (CI/CD)
+
+Higher software quality with fewer bugs
+
+Rapid recovery from failures
+
+⚙️ Key DevOps Practices
+#########################
+Practice	                                  Description
+🔄 CI/CD  	                       Automate code integration, testing, and deployment
+📦 Infrastructure as Code (IaC)	       Define and manage infrastructure using code (e.g., Terraform, Ansible)
+🧪 Automated Testing	               Run tests automatically to catch bugs early
+📈 Monitoring & Logging	               Track performance, get alerts, and troubleshoot
+🐳 Containerization	               Use Docker/Kubernetes to package and run apps anywhere
+
+
+#####################################
+🏢 What is IT Infrastructure?
+#####################################
+
+IT Infrastructure refers to the basic physical and virtual resources required to run and manage IT services and software applications.
+
+✅ In simple terms:
+
+It's everything you need to host, run, connect, store, protect, and manage your software and data.
+---------------------------------------------------------------------------------------------------
+
+💻 Components of IT Infrastructure
+################################################
+
+When you're setting up a software company (or any IT service), you need several core resources:
+
+a) 🖥️ Machines (Servers & Computers)
+Physical or virtual servers that run applications
+
+Developer/employee laptops, desktops
+
+b) 🌐 Network
+Routers, switches, firewalls, internet connections
+
+Ensures all systems can communicate securely and efficiently
+
+c) ⚡ Power
+Reliable electricity supply, UPS, generators
+
+Keeps systems running 24/7
+
+d) 💾 Storage
+Hard drives, SSDs
+
+Stores your application code, databases, files, and backups
+
+e) 🛡️ Backup
+Systems to regularly copy and save important data
+
+Protects from data loss due to failure, attacks, or mistakes
+
+f) 🔐 Security
+Firewalls, antivirus, encryption, access controls
+
+Protects systems and data from unauthorized access or cyberattacks
+
+🧠 Summary
+All these components together make up the IT Infrastructure – the foundation needed to build and run software services smoothly and securely.
+---------------------------------------------------------------------------------------------------------
+
+
+🏢 What is On-Prem Infrastructure?
+#################################################
+On-Premises (On-Prem) infrastructure means:
+-> You buy, own, and manage all your IT resources physically at your location (like office or data center).
+
+🔧 You are responsible for:
+a. Buying hardware (servers, routers, storage)
+
+b. Setting up network, power backup
+
+c. Hiring IT staff for maintenance
+
+d. Handling security, repairs, and upgrades
+
+⚠️ Challenges with On-Prem Infrastructure
+################################################
+💰 High Initial Investment – You have to buy everything upfront (costly!)
+
+👨‍🔧 High Manpower – You need skilled IT people to manage it
+
+📈 Scalability is Hard – Difficult to increase/decrease capacity quickly
+
+🔌 Availability – System failures = downtime
+
+🌐 Network Issues – You manage your own connections
+
+🔐 Security Issues – You are responsible for data protection
+---------------------------------------------------------------------------
+
+
+☁️ What is Cloud Computing?
+################################
+Cloud computing is the delivery of IT resources like servers, storage, databases, and software over the internet, on a pay-as-you-go basis.
+
+🔑 Key Idea:
+You rent resources from cloud providers when you need them, instead of buying.
+
+✅ Benefits of Cloud Computing
+Benefit	Description
+--------------------------------------------
+💸 Pay as You Go	Only pay for what you use (no upfront costs)
+📉 Low Cost	No need to buy physical hardware
+📈 Scalability	Easily scale up/down as needed
+🔄 High Availability	Redundant systems ensure minimal downtime
+🔐 Security	Cloud providers offer built-in security features
+♻️ Backup & Recovery	Automatic backups and quick recovery options
+🏢 Cloud Providers
+
+Cloud Providers are companies that offer cloud computing services. They manage the infrastructure and offer you services through the internet.
+
+Top Providers:
+-------------------
+Provider	Company
+☁️ AWS	     	 Amazon Web Services (Most popular)
+☁️ Azure	  	 Microsoft
+☁️ GCP		 Google Cloud Platform
+☁️ Salesforce	 Known for CRM and SaaS
+☁️ Alibaba Cloud	 Popular in Asia
+☁️ DigitalOcean	 Developer-friendly, small-scale cloud
+
+🧠 Summary
+-------------------
+On-Prem Infrastructure 		Cloud Computing
+You own & maintain		Provider maintains
+High upfront cost		Pay as you go
+Fixed capacity			Scalable
+More staff needed		Less staff needed
+Downtime risk			High availability
+Manual backups			Automated backups
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+☁️ Cloud Service Models
+Cloud providers offer different levels of services depending on how much control and responsibility you want. These models are:
+
+IaaS – Infrastructure as a Service
+
+PaaS – Platform as a Service
+
+SaaS – Software as a Service
+
+
+🧱 What is IaaS (Infrastructure as a Service)?
+####################################################
+-> IaaS is a cloud service model where the cloud provider gives you raw infrastructure, and you build everything on top of it.
+
+🏗️ Think of it like:
+"You rent a fully functional empty building, and it’s your job to furnish it, decorate it, and use it however you want."
+
+✅ What the cloud provider gives you:
+---------------------------------------------
+🖥️ Virtual Machines (VMs)
+
+🌐 Networking (IP, firewall, load balancer)
+
+💾 Storage (hard drives, SSDs)
+
+⚙️ Virtualization, Servers, Data Center
+
+✅ What you (the customer) have to do:
+------------------------------------------------
+Install Operating System (e.g., Ubuntu, Windows)
+
+Install runtime environments (Java, Python, Node.js, etc.)
+
+Set up web servers (Apache, Nginx, Tomcat, etc.)
+
+Deploy and manage your application code
+
+Handle updates, patches, and security
+
+📦 Example Scenario
+----------------------------------
+Let’s say you want to host a Java web application.
+
+Using IaaS:
+------------
+You create a VM on AWS EC2
+
+Install Ubuntu
+
+Install Java, Tomcat, MySQL
+
+Deploy your .war file
+
+Configure your firewall, ports, etc.
+
+🔧 Common IaaS Providers
+Provider		Service Example
+AWS			EC2, EBS, VPC
+Microsoft Azure		Virtual Machines
+Google Cloud		Compute Engine
+Oracle Cloud		OCI Compute
+DigitalOcean		Droplets
+
+------------------------------------------------------------------------------------------------
+
+⚙️ What is PaaS (Platform as a Service)?
+#############################################
+PaaS is a cloud service model where the cloud provider gives you a ready-made platform (runtime, OS, web server, etc.) so that you can directly deploy and run your application — without worrying about setting up servers or infrastructure.
+
+🎯 Key Idea:
+You focus only on developing and deploying your code, and the cloud provider takes care of the platform and infrastructure underneath.
+
+✅ What the cloud provider gives you:
+----------------------------------------
+Pre-installed OS
+
+Runtime environment (like Java, Node.js, Python)
+
+Web server (e.g., Apache, Tomcat)
+
+Auto-scaling, load balancing, and patching
+
+Built-in monitoring and logging
+
+✅ What you (the customer) need to do:
+----------------------------------------
+Write your application code
+
+Upload/deploy your app on the platform
+
+Manage your data, and maybe configure some settings
+
+You don’t need to:
+
+Install OS
+
+Set up web servers
+
+Configure runtime manually
+
+📦 Example Scenario
+------------------------
+Let’s say you want to deploy a Java Spring Boot application.
+
+Using PaaS:
+
+Choose a PaaS provider like Heroku or Google App Engine
+
+Push your code using Git
+
+The platform automatically:
+
+Sets up the Java environment
+
+Deploys your app
+
+Manages scaling and traffic
+
+You just monitor it and update the code when needed.
+
+☁️ Popular PaaS Providers
+Provider				Service Example
+Heroku				Easy app deployment (multi-language)
+Google App Engine		Run apps without managing servers
+AWS Elastic Beanstalk		Deploy web apps in Java, .NET, PHP, etc.
+Microsoft Azure App Service	Deploy and scale web apps easily
+
+-----------------------------------------------------------------------------------------------------
+
+💻 What is SaaS (Software as a Service)?
+####################################################
+SaaS is a cloud service model where the cloud provider gives you ready-to-use software, and you can access it through the internet — no installation, no setup, no servers.
+
+🎯 Key Idea:
+You simply use the software; everything else — like servers, updates, backups, and security — is managed by the cloud provider.
+
+✅ What the cloud provider handles:
+------------------------------------------
+Application software
+
+Servers and infrastructure
+
+Updates and bug fixes
+
+Data storage and backup
+
+Security and availability
+
+✅ What you (the customer) do:
+--------------------------------------------
+Just log in to the app (usually in a browser)
+
+Use it to manage your tasks, documents, communication, etc.
+
+Pay monthly/yearly (subscription)
+
+📌 No need to install, manage, or update anything.
+
+📦 Example SaaS Applications
+App					Purpose
+Zoom				Video meetings and communication
+Google Drive / Docs		File storage, editing, collaboration
+Dropbox	Cloud 			storage
+Microsoft 365 (Teams, Word)	Productivity & collaboration
+Jira				Project management & issue tracking
+Salesforce			Customer relationship management (CRM)
+------------------------------------------------------------------------------------------
+
+
+☁️ What is AWS Cloud?
+##############################
+AWS stands for Amazon Web Services – it’s the world's most popular cloud provider, offering a wide range of cloud computing services to individuals, startups, enterprises, and governments.
+
+🏁 Quick Facts
+------------------------------
+🚀 Launched in 2006
+
+🌍 Used in 190+ countries
+
+💰 Follows Pay-as-you-go pricing model
+(You only pay for what you use – no upfront cost)
+
+🌐 AWS Global Infrastructure
+To deliver fast, reliable, and secure services, AWS has a global infrastructure. Here's how it's structured:
+
+✅ Region
+---------------------------------------------------------------------
+A Region is a geographic area (e.g., US-East, Asia-Pacific, Europe)
+
+Each region contains multiple data centers
+
+Examples: us-east-1 (N. Virginia), ap-south-1 (Mumbai)
+
+🟢 Currently: 33 AWS Regions (and still growing)
+
+✅ Availability Zone (AZ)
+-------------------------------------------------------------------------
+Each region has multiple Availability Zones
+
+An AZ is basically a separate data center with its own power, networking, and cooling
+
+AZs in the same region are connected with high-speed networks
+
+Designed for high availability & fault tolerance
+
+🟢 Currently: 105 Availability Zones
+------------------------------------------------------------------------------
+
+🔧 Why This Global Setup Matters
+--------------------------------------------------
+Feature				Benefit
+
+🌍 Global Reach		Deploy apps close to your users
+🔁 Redundancy		Handle failures without downtime
+⚡ Low Latency		Faster access to apps/data
+🔒 Secure		Isolated zones = better security & control
+--------------------------------------------------------------------------------------
+
+☁️ AWS Services Overview
+##########################################
+AWS offers 200+ services, here are some of the most popular and important ones, grouped by purpose:
+
+🖥️ 1. Compute Services
+Service							Description
+EC2 (Elastic Compute Cloud)			Create virtual machines (hourly billing)
+Elastic Beanstalk				PaaS for managing full web applications (auto-scaling, deployment, etc.)
+Lambda	Serverless computing — 			just upload code, no servers needed
+ECS (Elastic Container Service)			Run and manage Docker containers
+EKS (Elastic Kubernetes Service)		Run Kubernetes clusters on AWS
+
+📦 2. Storage Services
+Service							Description
+S3 (Simple Storage Service)			Object storage for unlimited files (like Google Drive but for apps)
+EFS (Elastic File System)			Shared file system — mountable to multiple EC2s like a network drive
+
+🗄️ 3. Database Services
+Service							Description
+RDS (Relational Database Service)		Managed SQL databases (MySQL, PostgreSQL, etc.)
+DynamoDB					NoSQL managed database (not in your original list, but widely used)
+
+🔒 4. Security & Access
+Service							Description
+IAM (Identity & Access Management)		Manage users, roles, and permissions for AWS resources
+
+🌐 5. Networking
+Service							Description
+VPC (Virtual Private Cloud)			Create a private network within AWS
+Route 53					Domain Name System (DNS) service for domain mapping
+🔔 6. Monitoring & Notifications
+Service							Description
+CloudWatch					Monitor resources, log events, set alarms
+SNS (Simple Notification Service)		Send email, SMS, push notifications automatically
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+☁️ Elastic Compute Cloud (EC2) - AWS Service
+##############################################################
+EC2 is one of the most demanded services in AWS. It allows you to create virtual machines (VMs) in the AWS cloud, which are called EC2 instances.
+
+✅ Key Points about EC2:
+-----------------------------------------
+What is an EC2 Instance?
+-------------------------------------------------
+EC2 Instance = Virtual Machine (VM) or Server (you can think of it as a computer that runs on the cloud).
+
+It’s resizable, meaning you can change the configuration of your EC2 instance (e.g., CPU, RAM) based on the demand (if your workload increases, you can scale up).
+
+Billing:
+--------------------------------------------
+Hourly billing: You pay for the time your EC2 instance runs, by the hour.
+
+Minimum billing period is 1 hour. Even if you use it for less than 1 hour, you'll be billed for a full hour.
+
+Example: If you run your EC2 instance for 15 minutes, you'll still be billed for 1 hour.
+
+Note: AWS offers free tier access for beginners, like the t2.micro/t3.micro instance, which allows 750 hours per month for one year.
+
+Storage:
+--------------------------------------------------
+EBS (Elastic Block Storage) is used to store data for EC2 instances.
+
+Windows EC2 instances come with a default storage of 30 GB.
+
+Linux EC2 instances come with a default storage of 8 GB.
+
+Maximum EBS volume size is 16 TB (16,000 GB).
+
+Networking:
+-----------------------------------------------------------
+VPC (Virtual Private Cloud) service is used to manage the network for EC2 instances.
+
+VPC helps you define private networks and security controls for your EC2 instances.
+
+Creating EC2 Instances:
+-------------------------------------------------------------------
+To create an EC2 instance, you use an AMI (Amazon Machine Image).
+
+AMI is a pre-configured template that contains the operating system and software required for your EC2 instance.
+
+Examples of AMIs:
+
+Windows AMI
+
+Amazon Linux AMI
+
+Ubuntu AMI
+
+Red Hat AMI
+
+Security:
+----------------------------------------------
+To secure your EC2 instance, you use Key-Pairs:
+
+Key Pair is a set of public and private keys used for SSH (Secure Shell) login.
+
+One Key Pair can be used for multiple EC2 instances.
+
+For controlling access to your EC2 instance (allowing or restricting traffic), you use Security Groups.
+
+Security Groups act like firewalls to define which incoming and outgoing traffic is allowed.
+
+One Security Group can be assigned to multiple EC2 instances.
+
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
