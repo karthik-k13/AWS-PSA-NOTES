@@ -485,8 +485,58 @@ Security Groups act like firewalls to define which incoming and outgoing traffic
 One Security Group can be assigned to multiple EC2 instances.
 
 -------------------------------------------------------------------------
+Creating Windows ec2 instance and connecting with it
+###########################################################################
+1) Create Key Pair (.pem file)
+A Key Pair is used for secure login into your EC2 instance.
 
+Public Key: This stays with AWS. It is embedded into the EC2 instance during launch.
 
+Private Key (.pem): You download this. Keep it safe — you’ll need it to access the instance.
+
+🔐 If you lose the .pem file, you cannot connect to your instance unless you've already added another user or created a new key pair and updated it manually.
+
+2) Create Security Group and update Inbound Rules to allow traffic
+A Security Group acts as a virtual firewall for your instance. You must allow necessary traffic by adding inbound rules:
+
+Protocol	Port	Purpose
+RDP	3389	For Windows GUI access
+SSH	22	For Linux terminal access
+HTTP	80	For web traffic
+HTTPS	443	For secure web traffic
+MySQL	3306	For database connections
+🔒 Best practice: Restrict access by IP instead of using 0.0.0.0/0 (which means open to all).
+
+3) Create EC2 Instance
+Steps to launch your instance:
+
+✅ Select AMI: Choose Windows AMI if you want a GUI (e.g., Windows Server 2019).
+
+✅ Select Instance Type: Example — t2.micro (eligible for free tier).
+
+✅ Select Key Pair: Choose the one you created in Step 1.
+
+✅ Select Security Group: Use the one created in Step 2.
+
+✅ Configure Storage: Add/modify EBS Volume (root disk size, additional volumes if needed).
+
+✅ Launch Instance: Review and click Launch.
+
+4) Connect to EC2 instance using RDP client
+Once your Windows instance is running:
+
+➤ Steps to Connect via RDP (Remote Desktop Protocol):
+Go to EC2 Console → Instances → Select your instance.
+
+Click on Connect → RDP Client tab.
+
+Download the Remote Desktop File (.rdp).
+
+Click Get Password → Upload your .pem file to decrypt the password.
+
+Open the .rdp file → Enter the username (usually Administrator) and decrypted password.
+
+Accept the certificate warning → You’ll be logged into your Windows EC2 instance.
 
 
 
