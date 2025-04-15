@@ -538,6 +538,75 @@ Open the .rdp file → Enter the username (usually Administrator) and decrypted 
 
 Accept the certificate warning → You’ll be logged into your Windows EC2 instance.
 
+Types of IPs in AWS Cloud
+===============================
+✅ We have 3 types of IPs in AWS:
+1) Private IP
+Fixed inside a VPC
+
+Used for internal communication between EC2s
+
+🔹 Example:
+private ip : 172.31.34.139
+
+2) Public IP
+Dynamic, assigned by AWS when instance is launched
+
+Changes when instance is stopped and started
+
+🔹 Example:
+
+pgsql
+Copy
+Edit
+public ip : 13.127.100.70   (before restart)  
+public ip : 13.201.59.162   (after restart)
+3) Elastic IP
+A static public IP allocated to your AWS account
+
+You can associate it with any EC2 instance
+
+Remains unchanged even after restarts
+
+Charged if not associated with a running instance
+
+🔹 Example:
+Elastic IP : 3.6.99.192
+
+###############################
+Practicals on Elastic IP
+##############################
+Step-1: Allocate Elastic IP
+Go to EC2 Console > Network & Security > Elastic IPs
+
+Click Allocate Elastic IP
+
+AWS provides you an Elastic IP:
+✅ Elastic IP: 15.207.12.111
+
+Step-2: Associate Elastic IP with EC2 VM
+Choose your instance → Actions → Associate Elastic IP
+
+Select your new Elastic IP
+
+Associate it with your EC2 instance
+
+Step-3: Restart the EC2 VM
+Stop and Start the EC2 instance
+
+Verify the public IP remains the same:
+✅ Elastic IP: 15.207.12.111 (Still same after restart)
+
+Step-4: De-Associate Elastic IP
+Go to Elastic IPs → Select the IP → Actions → Disassociate
+
+Step-5: Release Elastic IP (to avoid billing)
+After disassociating, go to Elastic IPs
+
+Select the IP → Actions → Release Elastic IP
+
+This frees the IP and prevents unnecessary charges
+
 
 
 
