@@ -713,6 +713,81 @@ Archival (only if legacy reasons force it)
 
 ⚠️ Slow performance, not recommended for modern EC2 setups.
 
+#################
+Practicals on EBS
+######################
+1) Create EC2 VM (VM-1)
+OS: Amazon Linux AMI.
+
+When you create the EC2 instance, it will have an EBS root volume of 8 GB by default.
+
+2) Create Additional EBS Volume (10 GB)
+Go to the EC2 Dashboard.
+Under Elastic Block Store, select Volumes and create a new volume with the following properties:
+Size: 10 GB
+Availability Zone: Ensure you select the same Availability Zone (AZ) as VM-1 (e.g., ap-south-1a).
+
+3) Attach Additional Volume to EC2 VM-1
+After creating the additional EBS volume, right-click on it and select Attach.
+Choose the instance VM-1 and attach the volume to it (typically as /dev/xvdb).
+
+4) Connect with VM-1 and Check Volumes Attached
+SSH into VM-1 using the key pair you created during the EC2 instance launch.
+Once logged in, check the attached volumes with the following command:
+
+$ lsblk
+
+The output should list both the root volume (e.g., /dev/xvda) and the additional volume (e.g., /dev/xvdb).
+
+5) Store Data in Additional Volume by Mounting
+Format the additional volume to use the ext4 file system:
+$ sudo mkfs -t ext4 /dev/xvdb
+
+Create a mount directory for the additional volume:
+$ mkdir psa
+
+Mount the volume to the psa directory:
+$ sudo mount /dev/xvdb psa
+
+Change into the psa directory and create files to store data:
+$ cd psa
+$ sudo touch f1.txt f2.txt
+
+This step creates two text files: f1.txt and f2.txt on the additional volume.
+
+6) Detach Additional Volume from EC2 VM-1
+Go back to the EC2 Dashboard, select Volumes, find the additional volume (/dev/xvdb), and detach it from VM-1.
+
+7) Create a New EC2 VM (VM-2)
+Launch a new EC2 instance (VM-2) with the same Amazon Linux AMI or any other OS.
+Ensure VM-2 is in the same AZ as VM-1 for volume attachment.
+
+8) Attach Additional Volume to EC2 VM-2
+Attach the previously detached additional volume (from VM-1) to VM-2.
+It will show up as /dev/xvdb (or another name, depending on the device name you selected).
+
+9) Check the Data on the Volume
+SSH into VM-2.
+
+Run the following command to check the attached volumes:
+$ lsblk
+
+Mount the additional volume (/dev/xvdb) to a new directory:
+
+$ mkdir demo
+$ sudo mount /dev/xvdb demo
+
+Now, check the files:
+$ ls -l demo
+
+You should see f1.txt and f2.txt in the demo directory, confirming the data was preserved even after detaching and reattaching the volume.
+
+Conclusion:
+You have successfully:
+-> Created and attached an EBS additional volume.
+-> Stored data in the volume.
+-> Detached and reattached the volume to a new EC2 instance.
+-> Verified that the data persisted.
 
 
 
