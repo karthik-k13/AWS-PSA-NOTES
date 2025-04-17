@@ -650,6 +650,69 @@ If you remove the EBS Root Volume, the EC2 instance will not work because there'
 📍 Example:
 -> If your EC2 instance is in ap-south-1a (Mumbai), you can only attach EBS volumes in ap-south-1a, not in ap-south-1b or ap-south-1c.
 
+#################################################################################################
+Types of EBS volumes, explaining them in simple terms along with their use cases and size limits:
+###################################################################################################
+
+✅ 1) General Purpose SSD (gp3 / gp2)
+Min: 1 GiB
+Max: 16,384 GiB (16 TB)
+Use Case: Best for everyday use, such as running your OS, boot volumes, and general workloads.
+
+💡 Good for:
+Web servers
+Small to medium databases
+Development and testing environments
+
+📌 gp3 is newer and offers better performance at a lower cost compared to gp2.
+
+✅ 2) Provisioned IOPS SSD (io1 / io2)
+io1: Min 4 GiB, Max 16,384 GiB
+io2: Min 4 GiB, Max 65,536 GiB (65 TB)
+Use Case: Best for high-performance databases and applications that need consistent and fast I/O.
+
+💡 Good for:
+Mission-critical databases (like Oracle, SQL Server, PostgreSQL)
+High-performance workloads (financial systems, analytics, etc.)
+
+🔧 You can provision the number of IOPS (input/output operations per second) for predictable performance.
+
+✅ 3) Cold HDD (sc1)
+Min: 125 GiB
+Max: 16,384 GiB
+Use Case: Designed for infrequently accessed data.
+
+💡 Good for:
+Backup storage
+Archival storage
+Large volumes of rarely accessed files
+
+📉 Lowest cost per GB, but also lowest performance.
+
+✅ 4) Throughput Optimized HDD (st1)
+Min: 125 GiB
+Max: 16,384 GiB
+Use Case: Ideal for large, sequential workloads.
+
+💡 Good for:
+Big data
+Data warehouses
+Streaming log data
+Large-scale file systems
+
+📊 Focus is on throughput (MB/s), not IOPS.
+
+✅ 5) Magnetic (Standard) (legacy, rarely used now)
+Min: 1 GiB
+Max: 1,024 GiB (1 TB)
+Use Case: Old-generation storage type. Mostly used in the past for low-cost workloads.
+
+💡 Good for:
+Small, infrequent workloads
+Archival (only if legacy reasons force it)
+
+⚠️ Slow performance, not recommended for modern EC2 setups.
+
 
 
 
