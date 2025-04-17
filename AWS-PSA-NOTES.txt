@@ -606,7 +606,49 @@ After disassociating, go to Elastic IPs
 Select the IP → Actions → Release Elastic IP
 
 This frees the IP and prevents unnecessary charges
+#######################################################################
+✅ What is EBS?
+EBS stands for Elastic Block Store.
 
+Think of it like a hard disk or SSD that you attach to your EC2 (Elastic Compute Cloud) instance.
+
+✅ How does EBS work with EC2?
+When you create an EC2 instance, an EBS volume is created automatically – this is usually your Root Volume.
+
+This Root Volume contains the Operating System (OS).
+
+📝 Important Note:
+
+If you remove the EBS Root Volume, the EC2 instance will not work because there's no OS to boot from.
+
+✅ Types of EBS Volumes:
+1. Root Volume:
+
+-> Mandatory for EC2 to run.
+-> Created by default when you launch an EC2 instance.
+-> Stores the OS and essential boot files.
+
+2. Additional Volume:
+-> Optional.
+-> You can add these for extra storage (e.g., for data, backups, applications).
+-> Can be attached or removed as needed.
+
+✅ Default EBS Volume Sizes:
+-> Windows EC2 Instance: 30 GB by default.
+-> Linux EC2 Instance: 8 GB by default.
+
+✅ EBS Volume Size Limits:
+-> Normal EBS Volume: Up to 16 TB.
+-> High-performance io2 (Provisioned IOPS): Up to 65 TB.
+
+✅ Other Key Points:
+-> You can attach multiple EBS volumes to a single EC2 instance.
+-> However, one EBS volume can only be attached to one EC2 instance at a time.
+-> EBS volumes are Availability Zone (AZ) specific, which means:
+-> You can only attach an EBS volume to an EC2 instance in the same AZ.
+
+📍 Example:
+-> If your EC2 instance is in ap-south-1a (Mumbai), you can only attach EBS volumes in ap-south-1a, not in ap-south-1b or ap-south-1c.
 
 
 
