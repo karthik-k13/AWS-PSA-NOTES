@@ -789,6 +789,58 @@ You have successfully:
 -> Detached and reattached the volume to a new EC2 instance.
 -> Verified that the data persisted.
 
+####################################
+📸 What is a Snapshot in AWS?
+####################################
+
+A Snapshot is a backup of an EBS volume.
+
+It captures the entire state (data + configuration) of the volume at the time the snapshot was taken.
+
+Think of it like taking a photo of your hard disk — you can later use that photo to recreate the disk if needed.
+
+✅ Key Characteristics:
+✅ Snapshots are region-specific
+
+Note: You can only create and use snapshots within the same AWS region.
+Note: But! You can copy a snapshot to another region if needed for disaster recovery or migration.
+
+✅ Volumes are Availability Zone (AZ) specific
+
+You can only attach a volume to an EC2 instance in the same AZ.
+
+🔄 Volume ↔ Snapshot Workflow
+▶️ From Volume → Snapshot:
+You can create a snapshot of an existing EBS volume.
+
+This is commonly used for backup, cloning, or restoring volumes.
+
+▶️ From Snapshot → Volume:
+You can create a new EBS volume from the snapshot at any time.
+
+That new volume will have the same data as when the snapshot was taken.
+
+🌀 So the full lifecycle looks like this:
+
+
+NOte: Volume  ➝  Snapshot  ➝  Volume
+
+You can even create multiple volumes from a single snapshot if you need multiple copies.
+
+🚫 Can Snapshots be Attached to EC2?
+❌ No, snapshots cannot be attached directly to EC2 instances.
+
+✅ You must first create a volume from the snapshot, then you can attach that volume to your EC2 instance.
+
+💡 Think of it like this:
+
+A snapshot is just a stored image of a disk. You can't run it or mount it directly. You have to turn it into a usable disk (volume) first.
+
+📝 Use Cases for Snapshots:
+-> Backup and restore EBS volumes
+-> Creating new EC2 instances with preloaded data
+-> Moving data across regions (by copying snapshots)
+-> Creating AMIs (Amazon Machine Images)
 
 
 
