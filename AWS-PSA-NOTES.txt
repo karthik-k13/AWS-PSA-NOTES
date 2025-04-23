@@ -916,5 +916,22 @@ Retain the last 5 backups
 Delete older ones automatically
 You just set that up once, and AWS handles it every day. Zero manual work.
 
+✅ 1) What is User Data in EC2?
+#########################################
+💡 Definition:
+User data is a startup script (bash, cloud-init, etc.) you provide when launching an EC2 instance. It runs automatically once when the instance boots for the first time.
 
+🛠️ Example Use Case:
+Install Apache and host a webpage automatically.
+
+#!/bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Pankaj Sir Academy - 1</h1></html>" > index.html
+service httpd start
+
+✅ Features:
+Runs only once (at first boot)
+Ideal for installing packages, configuring software, setting up environments
 
