@@ -985,3 +985,81 @@ No.	Benefit	Explanation
 4️⃣	Faster performance	 - Better response time for users
 5️⃣	High availability	 - If one server fails, others still serve users
 
+🧪 Load Balancer Lab Task – Step-by-Step Explanation
+#########################################################
+✅ Step-1: Create EC2 VM-1 with User Data
+This instance will act as Server-1 running a simple static webpage.
+
+#!/bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Pankaj Sir Academy - 1</h1></html>" > index.html
+service httpd start
+
+🛠️ What this does:
+Installs Apache web server
+Writes HTML into /var/www/html/index.html
+Starts the Apache server so it can serve requests on port 80
+
+✅ Step-2: Create EC2 VM-2 with Similar User Data (but different content)
+
+#!/bin/bash
+sudo su
+yum install httpd -y
+cd /var/www/html
+echo "<html><h1>Pankaj Sir Academy - 2</h1></html>" > index.html
+service httpd start
+
+🧠 This makes sure both servers are functionally the same, but you can identify which one responds by looking at the response (Server - 1 or Server - 2).
+
+✅ Step-3: Create a Target Group and Add EC2s
+📌 A Target Group is a collection of EC2 instances that a Load Balancer can forward traffic to.
+
+While creating the Target Group:
+Type: Instance
+Protocol: HTTP
+Port: 80
+VPC: same VPC as EC2s
+Health Check Path: / (default is fine)
+Add both EC2s to the target group and register them
+
+💡 This links your servers to the Load Balancer.
+
+✅ Step-4: Create an Application Load Balancer (ALB)
+Key settings:
+Scheme: Internet-facing (so it’s publicly accessible)
+Listeners: HTTP on port 80
+AZs: Select the subnets where both EC2s are running
+Security Group: Allow inbound HTTP (port 80)
+Forwarding rule: Forward to the Target Group you created
+
+🔗 The Load Balancer will now accept user requests and forward them to either EC2 based on round-robin.
+
+✅ Step-5: Access the Load Balancer DNS Name
+Once the ALB is active:
+Go to the Load Balancer details in AWS Console
+Copy the DNS Name
+Open it in a browser:,http://<your-alb-dns-name>
+
+🎯 You’ll start seeing alternating outputs like:
+
+Life Insurance Server - 1
+
+Life Insurance Server - 2
+
+Because the Load Balancer is sending requests to each server one after another — this is round robin load balancing.
+
+❗ Note: Clean Up After Testing
+✅ To avoid unnecessary charges:
+Delete the Load Balancer
+Delete the Target Group
+Stop or terminate the EC2 instances
+
+✅ Summary:
+Step	Action	Purpose
+1 & 2	Create EC2s with web pages	Acts as backend web servers
+3	Create Target Group	Group servers for ALB to forward requests
+4	Create ALB	Public access point with round-robin load distribution
+5	Test via ALB DNS	Verifies successful load balancing
+Final	Delete resources	Avoid AWS billing
