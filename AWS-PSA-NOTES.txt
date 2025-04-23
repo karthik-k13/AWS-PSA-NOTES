@@ -935,3 +935,53 @@ service httpd start
 Runs only once (at first boot)
 Ideal for installing packages, configuring software, setting up environments
 
+💥 What the script does:
+-------------------------------
+sudo su – switches to root
+yum install httpd -y – installs Apache web server
+cd /var/www/html – goes to default website root directory
+echo ... > index.html – creates a basic HTML file
+service httpd start – starts the web server
+
+🌐 To Access the Website:
+-------------------------------
+After the instance starts:
+Go to the Security Group → Inbound Rules
+Allow traffic on port 80 (HTTP) from Anywhere (0.0.0.0/0)
+Open browser and type: http://<your-ec2-public-ip>
+
+🔄 What is a Load Balancer?
+#################################
+A Load Balancer is a system that automatically distributes incoming network or application traffic across multiple servers (or instances) to ensure no single server is overloaded with user request.
+
+❌ The Problem Without Load Balancer (Single Server Issues):
+When you host your application on one server only, you face:
+
+💥 All traffic goes to one place — server overload
+
+🐌 Increased users = slow response
+
+⚠️ If that server crashes, your app goes offline
+
+🛑 This is called a Single Point of Failure
+
+📉 Business impact — users can’t access services
+
+✅ Solution: Load Balancer
+A Load Balancer fixes these problems by:
+
+🧠 Smartly distributing traffic across multiple servers
+
+🔁 Uses Round Robin (or other algorithms) to share requests
+
+🧩 Automatically skips unhealthy servers
+
+✅ Benefits of Load Balancer (You wrote it well — here’s a quick enhancement):
+###############################################################################
+No.	Benefit	Explanation
+1️⃣	App runs on multiple servers -	Redundancy and scalability
+2️⃣	Load is distributed	 - No single server is overwhelmed
+3️⃣	Reduced burden on servers - 	Servers share the work
+4️⃣	Faster performance	 - Better response time for users
+5️⃣	High availability	 - If one server fails, others still serve users
+
