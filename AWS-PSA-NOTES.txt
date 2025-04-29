@@ -1064,6 +1064,19 @@ Step	Action	Purpose
 5	Test via ALB DNS	Verifies successful load balancing
 Final	Delete resources	Avoid AWS billing
 
+#############################
+Auto Scaling
+#############################
+-> Will adjust the server numbers automatically depending on the user load
+-> Desired Capacity: At any given point of time how many severs should run
+-> Min Capacity: Min servers required
+-> Max desired capacity: max number of servers AWS can scale upto based on load
+
+Note:
+------
+Create a template -> AMI + Server type, to define when auto scaling creates a server on its own which AMI & server type it should use.
+
+
 ####################################
 AWS S3 (Simple Storage Service)
 ####################################
