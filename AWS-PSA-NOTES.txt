@@ -1125,7 +1125,11 @@ d. WRITE_ACP: Allow someone to change the ACL.
 Example Use Cases:
 a. You upload a public image and set the object's ACL to public-read → Anyone can view/download it.
 
+✨ Real Example in Short:
+###################################
 
+a. Keep Block Public Access ON	Website inaccessible (Access Denied)
+b. Disable Block Public Access	Website accessible to everyone
 
 
 ✅ Objects:
