@@ -1111,3 +1111,59 @@ Quick Summary in Simple Terms:
 2. Upload Objects (Files) into the Bucket.
 3. Each bucket and file gets its own URL.
 4. Everything is private unless you make it public.
+
+Static Website Hosting using AWS S3
+✅ What is a Website?
+
+A website is simply a collection of web pages (like a login page, about us page, contact page, etc.).
+
+✅ Types of Websites:
+
+Static Website
+
+The same content is shown to every user.
+
+Example: A simple portfolio, a company’s information website, or a brochure website.
+
+Dynamic Website
+
+Different content is shown based on user inputs.
+
+Example: Facebook, Amazon (where content changes depending on the user).
+
+############################################
+✅ Static Website Hosting with S3:
+#############################################
+Amazon S3 can host static websites easily without needing any servers (like EC2).
+
+Step-by-Step Process:
+Step-1: Create an S3 Bucket
+a. Create a new bucket.
+b. Bucket name must be unique (across all AWS users globally).
+c. Example bucket name: my-portfolio-website-2025
+
+Step-2: Upload Website Files
+a. Upload all your website files (index.html, about.html, contact.html, CSS files, images, etc.) into your bucket.
+
+Important:
+Give public read access while uploading, or update bucket permissions later.
+Otherwise, users cannot view your website files in their browsers.
+
+Step-3: Enable Static Website Hosting
+a. Go to Properties of your bucket.
+b. Find the option "Static website hosting".
+c. Enable it and set:
+d. Index document → index.html (the main page)
+e. Error document → error.html (page to show for broken links or missing pages)
+f. After enabling, AWS will generate a Website Endpoint URL something like:
+
+http://my-portfolio-website-2025.s3-website-us-east-1.amazonaws.com
+
+Step-4: Access the Website
+a. Open the Website Endpoint URL in any browser.
+b. Your static website will now be live and publicly accessible!
+
+Important Notes:
+a. S3 URLs for static hosting are different from the standard object URLs.
+b. S3 does not support server-side code (like PHP, Node.js) — only static files (HTML, CSS, JS).
+c. You can connect a custom domain (like www.yoursite.com) later if needed using Route 53 or other DNS services.
