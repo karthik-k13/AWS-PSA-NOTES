@@ -1096,17 +1096,50 @@ Example:
 https://your-bucket-name.s3.amazonaws.com
 You can create multiple buckets in your AWS account.
 
+What is ACL in AWS S3?
+👉 ACL stands for Access Control List.
+
+✅ Purpose:
+
+It is a permission system in S3.
+
+It controls who can access your buckets and objects and what they can do (read, write, etc.).
+
+############################
+✅ Where ACLs apply:
+############################
+1. Buckets (folders)
+2. Objects (files)
+
+How ACL works:
+-> Each bucket and object has an ACL attached to it.
+-> An ACL is basically a list of grants (permissions) that you assign to:
+
+✅ Examples of permissions you can set with ACLs:
+
+a. READ: Allow someone to view (download) a file.
+b. WRITE: Allow someone to upload or delete a file.
+c. READ_ACP: Allow someone to read the ACL itself.
+d. WRITE_ACP: Allow someone to change the ACL.
+
+Example Use Cases:
+a. You upload a public image and set the object's ACL to public-read → Anyone can view/download it.
+
+
+
+
 ✅ Objects:
 
 1. After you upload a file (object) into a bucket. That file also gets its own unique URL.
-
 https://your-bucket-name.s3.amazonaws.com/your-file-name.jpg
+
 ✅ Access Control:
 
 1. By default, everything (buckets and objects) is private.
 2. You can choose to make them public if you want others to access your files.
 
 Quick Summary in Simple Terms:
+----------------------------------
 1. Create a Bucket (Folder).
 2. Upload Objects (Files) into the Bucket.
 3. Each bucket and file gets its own URL.
@@ -1114,22 +1147,15 @@ Quick Summary in Simple Terms:
 
 Static Website Hosting using AWS S3
 ✅ What is a Website?
-
 A website is simply a collection of web pages (like a login page, about us page, contact page, etc.).
 
 ✅ Types of Websites:
+a. Static Website
+-> The same content is shown to every user.
+-> Example: A simple portfolio, a company’s information website, or a brochure website.
+b. Dynamic Website
+-> Different content is shown based on user inputs.
 
-Static Website
-
-The same content is shown to every user.
-
-Example: A simple portfolio, a company’s information website, or a brochure website.
-
-Dynamic Website
-
-Different content is shown based on user inputs.
-
-Example: Facebook, Amazon (where content changes depending on the user).
 
 ############################################
 ✅ Static Website Hosting with S3:
