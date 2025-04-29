@@ -1075,7 +1075,7 @@ It can be accessed anytime, from anywhere via the internet.
 
 ✅ Key Features:
 
-1. Unlimited Storage: No upper limit on how much you can store.
+1. Unlimited Storage: No upper limit on how much you can store.👉 Maximum size for a single file (object) in S3: 5 Terabytes (TB) per object.
 
 2. Object-Based Storage:
 
