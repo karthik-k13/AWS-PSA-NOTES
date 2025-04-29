@@ -1044,9 +1044,9 @@ Open it in a browser:,http://<your-alb-dns-name>
 
 🎯 You’ll start seeing alternating outputs like:
 
-Life Insurance Server - 1
+Pankaj Sir Academy - 1
 
-Life Insurance Server - 2
+Pankaj Sir Academy - 2
 
 Because the Load Balancer is sending requests to each server one after another — this is round robin load balancing.
 
@@ -1063,3 +1063,51 @@ Step	Action	Purpose
 4	Create ALB	Public access point with round-robin load distribution
 5	Test via ALB DNS	Verifies successful load balancing
 Final	Delete resources	Avoid AWS billing
+
+####################################
+AWS S3 (Simple Storage Service)
+####################################
+✅ What is S3?
+
+It is a storage service provided by Amazon Web Services (AWS) where you can store unlimited data (like files, images, videos, backups, documents, etc.) safely in the cloud.
+
+It can be accessed anytime, from anywhere via the internet.
+
+✅ Key Features:
+
+1. Unlimited Storage: No upper limit on how much you can store.
+
+2. Object-Based Storage:
+
+Example: Object = File (e.g., PDF, image, video, etc.)
+
+3. Along with the file itself, some metadata (extra information about the file) is stored.
+
+✅ Buckets:
+
+1. A Bucket is like a folder where you group your files (objects).
+
+Important Rules:
+
+a. Every bucket must have a globally unique name (no two buckets anywhere in AWS can have the same name).
+
+b. When you create a bucket, AWS automatically creates an endpoint URL to access that bucket.
+Example:
+https://your-bucket-name.s3.amazonaws.com
+You can create multiple buckets in your AWS account.
+
+✅ Objects:
+
+1. After you upload a file (object) into a bucket. That file also gets its own unique URL.
+
+https://your-bucket-name.s3.amazonaws.com/your-file-name.jpg
+✅ Access Control:
+
+1. By default, everything (buckets and objects) is private.
+2. You can choose to make them public if you want others to access your files.
+
+Quick Summary in Simple Terms:
+1. Create a Bucket (Folder).
+2. Upload Objects (Files) into the Bucket.
+3. Each bucket and file gets its own URL.
+4. Everything is private unless you make it public.
