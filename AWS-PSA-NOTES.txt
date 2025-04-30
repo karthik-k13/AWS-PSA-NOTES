@@ -1162,9 +1162,65 @@ Quick Summary in Simple Terms:
 3. Each bucket and file gets its own URL.
 4. Everything is private unless you make it public.
 
+###############################
+📌 What is S3 Versioning?
+###############################
+S3 Versioning is a feature that allows you to preserve, retrieve, and restore every version of every object (file) stored in an S3 bucket.
+
+==================================================================================
+| Feature             | Description                                               |
+==================================================================================
+| What is Versioning  | Maintains multiple versions of the same object (file).    |
+| Default Status      | Disabled by default in all new S3 buckets.                |
+| Overwrite Behavior  | Without versioning: new upload replaces old file.         |
+| With Versioning     | New upload creates a new version; old versions are kept.  |
+
+#########################################
+⚡ What is S3 Transfer Acceleration?
+##########################################
+a. S3 Transfer Acceleration is an AWS feature that speeds up file uploads and downloads to and from your S3 bucket, especially when:
+b. The user is far from the S3 bucket's region
+c. You are transferring large files over long distances
+
+##################################
+🔐 What is S3 Object Lock?
+##################################
+S3 Object Lock is a feature that lets you prevent objects (files) from being deleted or modified for a fixed period or forever. It's used to protect critical data for compliance, backup, or legal reasons.
+
+==================================================================================
+| Feature                 | Description                                          |
+==================================================================================
+| Purpose                 | Prevents deletion/modification of S3 objects         |
+| Bucket Requirement      | Must be versioning-enabled                           |
+| Modes Supported         | Governance Mode, Compliance Mode                     |
+| Governance Mode         | Only certain users can delete/overwrite (with permission) |
+| Compliance Mode         | No one can delete/modify object (not even root user) |
+| Retention Period        | Fixed duration (e.g., 30 days, 5 years, etc.)        |
+| Legal Hold              | Alternate option to lock object indefinitely         |
+| Use Cases               | Legal documents, audit logs, backups, compliance     |
+| WORM Support            | Yes (Write Once Read Many)                           |
+==================================================================================
+
+
+
+######################
+Note - s3
+######################
+====================================================================
+| Limit Type                    | Default Limit                  |
+======================================================================
+| Number of Buckets per Account| 100 (soft limit, can request increase) |
+| Number of Objects per Bucket | Unlimited                      |
+| Bucket Name Uniqueness       | Must be globally unique        |
+| Object Size (Max per Upload) | 5 TB (single object)           |
+| Upload Limit via Console     | 160 GB                     
+
+
+#########################################
 Static Website Hosting using AWS S3
+#########################################
 ✅ What is a Website?
-A website is simply a collection of web pages (like a login page, about us page, contact page, etc.).
+A website collection of webpages.
 
 ✅ Types of Websites:
 a. Static Website
