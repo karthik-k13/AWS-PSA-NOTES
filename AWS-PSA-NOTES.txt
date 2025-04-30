@@ -1210,3 +1210,17 @@ Important Notes:
 a. S3 URLs for static hosting are different from the standard object URLs.
 b. S3 does not support server-side code (like PHP, Node.js) — only static files (HTML, CSS, JS).
 c. You can connect a custom domain (like www.yoursite.com) later if needed using Route 53 or other DNS services.
+
+####################################################
+📦 What are S3 Storage Classes?
+#############################################
+S3 offers different storage classes to help you optimize cost and performance depending on:
+
+How frequently you access the data
+
+How long you want to store it
+
+How critical the retrieval speed is
+
+✅ Purpose:
+To let you store data cost-effectively by selecting the right storage class based on usage pattern.
