@@ -1224,3 +1224,19 @@ How critical the retrieval speed is
 
 ✅ Purpose:
 To let you store data cost-effectively by selecting the right storage class based on usage pattern.
+
+############################
+🎯 When to Use Which?
+############################
+
+============================================================================================================================================
+| Need                                     | Recommended Class           | Storage Cost/GB/Month | Retrieval Cost                          |
+============================================================================================================================================
+| Frequent use, low latency (e.g. app data)| S3 Standard                 | ~$0.023               | Free                                    |
+| Changing access pattern over time        | S3 Intelligent-Tiering      | ~$0.023 + ~$0.0025    | Free (frequent), low for other tiers    |
+| Backups, monthly reports                 | S3 Standard-IA              | ~$0.0125              | ~$0.01 per GB                           |
+| Backups in non-critical regions          | S3 One Zone-IA              | ~$0.01                | ~$0.01 per GB                           |
+| Fast restore from archives               | S3 Glacier Instant Retrieval| ~$0.004               | ~$0.03 per GB                           |
+| Old logs, less frequent restore          | S3 Glacier Flexible Retrieval| ~$0.0036              | ~$0.01–$0.03 per GB (minutes to hours) |
+| Rare restore, long-term archival         | S3 Glacier Deep Archive     | ~$0.00099             | ~$0.02–$0.03 per GB (up to 12 hrs delay)|
+=============================================================================================================================================
