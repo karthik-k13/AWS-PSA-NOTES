@@ -1296,3 +1296,118 @@ To let you store data cost-effectively by selecting the right storage class base
 | Old logs, less frequent restore          | S3 Glacier Flexible Retrieval| ~$0.0036              | ~$0.01–$0.03 per GB (minutes to hours) |
 | Rare restore, long-term archival         | S3 Glacier Deep Archive     | ~$0.00099             | ~$0.02–$0.03 per GB (up to 12 hrs delay)|
 =============================================================================================================================================
+
+##################################################
+✅ IAM (Identity and Access Management)
+##################################################
+Definition:
+IAM is a free AWS service used to securely control access to AWS resources. It helps in managing users, groups, policies, and roles.
+
+🔑 Types of AWS Accounts
+1. Root Account
+The root account is created when you first sign up for AWS.
+
+It has unrestricted access to all AWS services and resources.
+
+It should never be used for daily tasks.
+
+Important Notes:
+
+❌ Do not use the root account for regular operations.
+
+❌ Do not share root credentials.
+
+✅ Always enable MFA (Multi-Factor Authentication) for the root account.
+
+👨‍💻 Companies never give root access to team members.
+
+🔐 Multi-Factor Authentication (MFA)
+Purpose: Adds an extra layer of security to your AWS account.
+
+How it works:
+
+Enable MFA for the root account (or IAM users).
+
+Use a mobile app like Google Authenticator to generate codes.
+
+During login, enter your password + code from the app.
+
+👤 IAM Account (IAM Users)
+Definition:
+IAM users are individual accounts created under the root account for team members or applications.
+
+Steps to use:
+
+Create IAM user.
+
+Assign required permissions via policies (e.g., AmazonS3FullAccess, AmazonRDSFullAccess).
+
+IAM users have no access to services unless permissions are explicitly granted.
+
+👥 IAM User Groups
+Definition: A user group is a collection of IAM users.
+
+Benefits:
+
+Apply policies once to the group, instead of individually to each user.
+
+Easily manage common permissions for multiple users.
+
+Steps:
+
+Create a group.
+
+Attach relevant policies.
+
+Add users to the group.
+
+🛡️ IAM Policies
+Definition: Policies are JSON documents that define permissions.
+
+Types:
+
+AWS Managed Policies – provided by AWS.
+
+Customer Managed Policies – created and maintained by you.
+
+Inline Policies – attached to a single user, group, or role.
+
+Example:
+A policy can allow full access to S3, or read-only access to EC2.
+
+🧑‍🔧 IAM Roles
+Definition: Roles are similar to users but are not associated with a specific person. Instead, they are used by AWS services to perform actions.
+
+Use Case Example:
+
+If an EC2 instance needs to interact with EKS:
+
+Create a role with EKS-related permissions.
+
+Attach the role to the EC2 instance.
+
+Roles are temporary and use short-term credentials.
+
+💻 Console Access vs Programmatic Access
+Console Access:
+User can log in to the AWS web console using a username/password.
+
+Programmatic Access:
+User can access AWS via CLI/SDKs using access key ID and secret access key.
+
+You can choose one or both access types when creating a user.
+
+📋 IAM Summary Checklist
+
+Topic	Description
+1. What is IAM	AWS service for managing access
+2. Root Account	Full control account created at signup
+3. Enable MFA	Adds security using apps like Google Authenticator
+4. IAM Account	User accounts for team/application use
+5. Console vs Programmatic Access	Web UI vs CLI/API access
+6. Users	Individual identities under root
+7. Groups	Collection of users with shared permissions
+8. Policies	Define permissions (read, write, full access, etc.)
+9. Roles	Permissions assigned to AWS services or temporary access
+10. Custom Policies	User-defined permissions in JSON format
+
