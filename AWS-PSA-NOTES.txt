@@ -1411,3 +1411,65 @@ Topic	Description
 9. Roles	Permissions assigned to AWS services or temporary access
 10. Custom Policies	User-defined permissions in JSON format
 
+##################################
+Relational Database Service
+##################################
+It is a fully managed service provided by AWS that helps you set up, operate, and scale a relational database in the cloud.
+
+Database Setup
+------------------------------
+We can set up a database in two ways:
+
+a. On-Premises Database
+b. Cloud-Based Database
+
+
+
+🔑 Key Features of AWS RDS:
+---------------------------------
+1. Supports multiple database engines: MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, and Amazon Aurora.
+2. Automatic backups and point-in-time recovery.
+3. High availability with Multi-AZ deployments.
+4. Scalability: Easily increase storage and compute power.
+5. Security: Data encryption at rest and in transit.
+6. Monitoring using CloudWatch.
+7. Pay-as-you-go billing model.
+
+🎯 Why use RDS?
+--------------------------
+1. You don’t have to worry about:
+2. Installing database software
+3. Managing hardware
+4. Setting up backups and security
+5. Handling failovers or scaling manually
+
+
+
+Practicals on RDS Creation
+----------------------------
+Step 1: Create a MySQL database using AWS RDS.
+Step 2: Enable MySQL port 3306 in the Security Group (Inbound Rules).
+Step 3: Test the connection using MySQL Workbench (client software).
+Step 4: Run SQL queries to practice (optional).
+Step 5: Delete the RDS instance after practice to avoid charges.
+
+MySQL DB Creation Settings
+-------------------------------
+Creation Method: Standard Create
+Engine Type: MySQL
+Template: Free Tier
+DB Instance Identifier: psa-db-instance
+Public Access: Yes
+Initial Database Name: testdb
+
+Database Connection Details
+--------------------------------------
+You will receive the following:
+
+Endpoint url
+Username:
+Password:
+Port: 3306
+
+🔐 Use these credentials in MySQL Workbench to verify the connection.
+✅ If connection is successful, share the DB details with the development team for project integration.
