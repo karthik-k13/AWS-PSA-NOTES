@@ -1473,3 +1473,132 @@ Port: 3306
 
 🔐 Use these credentials in MySQL Workbench to verify the connection.
 ✅ If connection is successful, share the DB details with the development team for project integration.
+
+Example 1: JDBC Connection to RDS database - Create Record
+---------------------------------------------
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class A {
+	public static void main(String[] args) {
+		try {
+			//Connect to database - use psaDB (SQL)
+			
+			Connection con = 
+					DriverManager.
+	getConnection("jdbc:mysql://testdb.czacsiwa8h6m.ap-south-1.rds.amazonaws.com:3306/psaDB","admin","admin123$");
+		
+			
+			//Write & execute SQl query
+			//
+			
+			Statement stmnt =  con.createStatement();
+			stmnt.executeUpdate("insert into student values('adam','adam@gmail.com','9632629555')");
+			
+			//Close database connection
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+
+Example 2: JDBC Connection to RDS database - Delete Record
+---------------------------------------------
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class B {
+	public static void main(String[] args) {
+		try {
+			//Connect to database - use psaDB (SQL)
+		Connection con = 
+					DriverManager.
+	getConnection("jdbc:mysql://testdb.czacsiwa8h6m.ap-south-1.rds.amazonaws.com:3306/psaDB","admin","admin123$");
+					
+			//Write & execute SQl query
+			
+			Statement stmnt =  con.createStatement();
+			stmnt.executeUpdate("Delete from student where email='adam@gmail.com'");
+			
+			//Close database connection
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+
+Example 3: JDBC Connection to RDS - Update Record
+------------------------------------------------
+import java.sql.*;
+
+
+public class C {
+	public static void main(String[] args) {
+		try {
+			//Connect to database - use psaDB (SQL)
+			
+			Connection con = 
+					DriverManager.
+	getConnection("jdbc:mysql://testdb.czacsiwa8h6m.ap-south-1.rds.amazonaws.com:3306/psaDB","admin","admin123$");
+		
+			
+			//Write & execute SQl query
+			//
+			
+			Statement stmnt =  con.createStatement();
+			stmnt.executeUpdate("Update student set mobile='9632882052' where email='mike2gmail.com'");
+			
+			//Close database connection
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+
+Example 4: JDBC Connection to RDS - Read Record
+------------------------------------------------
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class D {
+	public static void main(String[] args) {
+		try {
+			//Connect to database - use psaDB (SQL)
+			
+			Connection con = 
+					DriverManager.
+	getConnection("jdbc:mysql://testdb.czacsiwa8h6m.ap-south-1.rds.amazonaws.com:3306/psaDB","admin","admin123$");
+		
+			
+			//Write & execute SQl query
+			//
+			
+			Statement stmnt =  con.createStatement();
+			ResultSet result = stmnt.executeQuery("Select * from student");
+			
+			while(result.next()) {
+				System.out.println(result.getString(1));
+				System.out.println(result.getString(2));
+				System.out.println(result.getString(3));
+			}
+			
+			//Close database connection
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+
+
