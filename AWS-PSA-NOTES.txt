@@ -1601,4 +1601,46 @@ public class D {
 
 }
 
+#####################
+✅ What is AWS CLI?
+########################
+AWS CLI is a tool that lets you interact with AWS services directly from the command line (your terminal or shell), using simple commands. It is officially developed by Amazon.
+
+✅ Key Features:
+-----------------------
+a. Manage AWS services like EC2, S3, IAM, Lambda, etc.
+b. Run scripts to automate tasks (like starting/stopping servers).
+c. Access AWS resources without using the AWS Web Console.
+
+🔵 For Windows:
+--------------------------------------
+a. Download the MSI installer: https://awscli.amazonaws.com/AWSCLIV2.msi
+b. Run the installer and follow the setup instructions.
+c. Verify installation: aws --version
+
+
+#################################
+Login to AWS CLI
+#################################
+
+aws configure
+AWS Access Key ID [****************WZEZ]: 
+AWS Secret Access Key [****************GvFv]: 
+Default region name [ap-south-1]: ap-south-1
+Default output format [json]: json
+
+To Verify login run the following command
+
+aws sts get-caller-identity
+
+Response: In Json Format
+{
+    "UserId": "495599735532",
+    "Account": "495599735532",
+    "Arn": "arn:aws:iam::495599735532:root"
+}
+
+
+
+
 
