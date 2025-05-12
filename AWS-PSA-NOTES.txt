@@ -1644,5 +1644,107 @@ Response: In Json Format
 Link to AWS Documention: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html
 ##########################################################################################################
 
+#################################
+☁️ CloudWatch – Overview
+#################################
+Amazon CloudWatch is a monitoring and observability service provided by AWS. It helps you collect, access, and analyze metrics, logs, and events from various AWS resources and applications in real time.
 
+✅ Key Uses of CloudWatch:
+Monitor AWS Resources:
+-> CloudWatch allows you to monitor the performance and health of AWS services like:
+-> EC2 Instances: Track CPU utilization, disk reads/writes, network traffic, etc.
+-> EBS volumes: Monitor read/write ops, throughput, and latency.
+-> Elastic Load Balancers (ELB): Monitor latency
+-> RDS (Relational Database Service): Monitor DB connections, CPU usage, storage, IOPS, etc.
+
+
+🔧 How CloudWatch Works:
+-> Data Collection: CloudWatch collects metrics and logs from AWS services or custom sources.
+-> Visualization: Data can be visualized using dashboards or graphs.
+-> Alarms: You can set up CloudWatch Alarms to notify you when a metric exceeds a defined threshold.
+
+Automated Actions: Based on alarms, you can trigger actions like:
+
+-> Auto-scaling
+-> Sending SNS notification
+
+#####################################################
+🧪 CloudWatch & SNS – Practical Guide
+#####################################################
+
+✅ Step 1: Create SNS Topic with Email Notification
+	a. Open AWS Console → Navigate to Amazon SNS.
+
+	b. Click Topics → Click Create topic.
+
+	c. Select Standard type.
+
+	d. Enter:
+
+		Topic name: pankaj
+
+	e. Click Create topic.
+
+✅ Step 2: Configure Email Subscription
+	a. After creating the topic, click on it → Click Create subscription.
+
+	b. Set:
+
+		Protocol: Email
+
+		Endpoint: (Enter your valid email address)
+
+	c. Click Create subscription.
+
+	d. Open your email inbox and confirm the subscription by clicking the link in the email.
+
+✅ Step 3: Launch and Configure EC2 with CloudWatch Alarm
+	a. Launch an EC2 instance (Amazon Linux 2 preferred).
+
+	b. Once running, go to:
+
+		EC2 Dashboard → Instances → Select your instance.
+
+	c. Click:
+
+		Actions → Monitor and troubleshoot → Manage CloudWatch alarms
+
+	
+	d. Under Metric, choose:
+
+		EC2 → Per-Instance Metrics → Select your instance → CPUUtilization
+
+	e. Set conditions:
+
+		Threshold type: Static
+
+		Whenever CPUUtilization is >= 5%
+
+	        5 minutes (or 1 minute if you want faster response)
+
+	f. Configure actions:
+
+		Alarm state trigger: In Alarm
+
+		Notification: Select your SNS topic (pankaj)
+
+		Name the alarm (e.g., HighCPUAlarm) → Click Create alarm
+
+✅ Step 4: SSH into EC2 and Simulate High CPU Load
+	a. Connect to EC2 using your SSH client:
+        b. Install stress tool: sudo yum install stress -y
+	c. Simulate CPU load (run this 3–4 times to trigger alarm): stress --cpu 8 -v --timeout 180s
+
+✅ Step 5: Monitor CloudWatch Alarm and SNS Email Notification
+	a. Navigate to CloudWatch Console → Alarms.
+
+	b. Click your alarm name.
+
+	c. Observe:
+
+	d. State changes: From OK → ALARM
+
+	e. Alarm History: Click on your alarm → Click on History tab to view how many times it was triggered.
+
+	f. Check your email inbox for notifications sent by SNS when alarm was triggered.
 
