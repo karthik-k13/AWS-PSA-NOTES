@@ -1748,3 +1748,122 @@ Automated Actions: Based on alarms, you can trigger actions like:
 
 	f. Check your email inbox for notifications sent by SNS when alarm was triggered.
 
+############################################
+✅ What is AWS Elastic Beanstalk?
+############################################
+AWS Elastic Beanstalk is a fully managed Platform-as-a-Service (PaaS) that allows you to deploy, manage, and scale web applications quickly — without worrying about infrastructure setup.
+
+🔧 What Does Elastic Beanstalk Do?
+-------------------------------------------
+When you upload your application (Java, Python, Node.js, .NET, PHP, Go, etc.), Elastic Beanstalk handles:
+
+✅ Provisioning: Launches EC2 instances, Load Balancer, Auto Scaling, etc.
+
+✅ Deployment: Automatically deploys your app code.
+
+✅ Monitoring: Integrates with CloudWatch to monitor performance and health.
+
+✅ Scaling: Automatically adjusts capacity using Auto Scaling groups.
+
+✅ Patching: Keeps platform components (like Tomcat, Node.js, etc.) up to date.
+
+
+✅ Elastic Beanstalk Pricing Model (Explained)
+🔹 Elastic Beanstalk itself is free — you are not charged for using the service.
+🔹 However, you pay for the AWS resources that your Beanstalk environment creates and uses, such as:
+
+a. EC2 instances (for compute)
+b. Load Balancers (ALB/ELB)
+c. Auto Scaling Groups
+d. RDS (if configured)
+e. S3 (for deployment artifacts)
+
+⚠️ Important: Be sure to terminate environments when done to avoid unnecessary charges.
+------------------------------------------------------------------------------------
+
+✅ Practicals: Deploy Spring Boot App on Elastic Beanstalk
+---------------------------------------------------------------------
+
+🔹 Step 1: Create IAM Role for Beanstalk
+You need to create an IAM role that Elastic Beanstalk.
+
+🛠️ Steps:
+
+a. Go to IAM → Roles → Create Role
+b. Choose Elastic Beanstalk → Elastic Beanstalk
+c. Attach the following policies:
+
+	1. AWSElasticBeanstalkMulticontainerDocker
+
+	2. AWSElasticBeanstalkWebTier
+
+	3. AWSElasticBeanstalkWorkerTier
+
+d. Name the role:
+	psait_beanstack_role
+
+🔹 Step 2: Create Elastic Beanstalk Application
+🛠️ Steps:
+
+a. Go to AWS Console → Elastic Beanstalk
+b. Click on "Create Application"
+c. Enter:
+	1. Application Name (e.g., springboot-demo)
+	2. Platform: Java
+	3. Platform Branch: Choose appropriate version (e.g., Java 17 Corretto)
+	4. Do NOT upload code yet; you’ll do that in next steps.
+d. Click Create
+
+🔹 Step 3: Create Environment for the Application
+🛠️ Steps:
+
+a. After the application is created, click “Create Environment”
+b. Choose "Web server environment"
+c. Set the environment name (e.g., springboot-env)
+d. Choose the platform again (Java, version-specific)
+e. Select the IAM role: psait_beanstack_role
+f. Proceed with default settings and click Create Environment
+
+✅ Once the environment is created, you’ll receive a public DNS URL like:
+
+http://springboot-env.eba-xxxxxxx.us-east-1.elasticbeanstalk.com
+
+✅ Uploading Spring Boot .jar File
+g. You now deploy your code to the environment.
+
+🔹 Step 4: Prepare the JAR File
+Build your Spring Boot app using:
+
+mvn clean package
+Ensure target/myapp.jar is ready.
+
+🔹 Step 5: Upload and Deploy JAR
+🛠️ Steps:
+
+a. Go to Elastic Beanstalk → Your Environment
+b. Click "Upload and Deploy"
+c. Upload your .jar file
+d. Set version label (e.g., v1.0)
+e. Click Deploy
+
+🔹 Step 6: Set Environment Variable (PORT)
+To ensure the Spring Boot app listens on the correct port:
+
+🛠️ Steps:
+a. Go to Elastic Beanstalk → Your Environment → Configuration
+b. Find "Software → Edit"
+c. Under Environment Properties, add:
+d. SERVER_PORT = 5000
+e. Click Apply Changes
+
+✅ This will restart the environment with the correct port mapping.
+
+🔹 Step 7: Access Your App
+Once environment restarts successfully:
+
+📡 Open the environment URL
+Example:
+
+http://springboot-env.eba-xxxxxxx.us-east-1.elasticbeanstalk.com
+
+🎉 Your Spring Boot app is now live!
