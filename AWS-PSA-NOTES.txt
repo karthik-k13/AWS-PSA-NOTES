@@ -1781,10 +1781,25 @@ e. S3 (for deployment artifacts)
 ⚠️ Important: Be sure to terminate environments when done to avoid unnecessary charges.
 ------------------------------------------------------------------------------------
 
+Elastic Beanstalk Service Role (Environment Role):
+------------------------------------------------------------
+a. Purpose: This role is used by Elastic Beanstalk itself to manage the resources required for your application.
+
+b. Scope: It allows Elastic Beanstalk to create and manage AWS resources (like EC2 instances, load balancers, security groups, etc.) on your behalf.
+
+EC2 Instance Profile Role (Compute Role):
+-------------------------------------------------------------
+
+Purpose: This role is assigned to the EC2 instances running in your Elastic Beanstalk environment. It allows those EC2 instances to interact with other a. AWS services that your Spring Boot application may need, like accessing an S3 bucket, reading from an RDS database, or writing logs to CloudWatch.
+
+b. Scope: It is specifically for granting permissions to EC2 instances so they can interact with AWS resources while the Spring Boot application is running.
+
 ✅ Practicals: Deploy Spring Boot App on Elastic Beanstalk
 ---------------------------------------------------------------------
+🔹 Step 0: Create IAM Role for Beanstalk Service Role (Environment Role)
 
-🔹 Step 1: Create IAM Role for Beanstalk
+
+🔹 Step 1: Create IAM Role for Beanstalk Profile Role (Compute Role)
 You need to create an IAM role that Elastic Beanstalk.
 
 🛠️ Steps:
