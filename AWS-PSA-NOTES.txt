@@ -1889,6 +1889,7 @@ VPC: In AWS (Amazon Web Services), VPC stands for Virtual Private Cloud.
 a. Amazon VPC is a logically isolated virtual network that you create in the AWS cloud. It is your own private network space in AWS
 b. Your VPC is like your own private data center within AWS.
 c. No other company can see or access your resources — unless you explicitly allow it.
+d. VPC is a free Service in AWS
 
 
 ############################################################################
@@ -1941,6 +1942,10 @@ VPC sizing means choosing the IP address range (CIDR block) for your VPC that fi
 Example 1: 10.0.0.0/16------>2^(32-16)-----> 2^16----->65,536
 Example 2: 10.0.0.0/24------>2^(32-24)----->2^8------->256
 
+
+🌐 What is a Subnet?
+--------------------------------
+A subnet (short for subnetwork) is a smaller network segment created by dividing a larger network (like a VPC) into multiple, logically separated pieces.
 
 
 
