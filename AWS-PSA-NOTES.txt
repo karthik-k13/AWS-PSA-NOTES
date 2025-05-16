@@ -1882,3 +1882,67 @@ Example:
 http://springboot-env.eba-xxxxxxx.us-east-1.elasticbeanstalk.com
 
 🎉 Your Spring Boot app is now live!
+
+###########################################################################
+VPC: In AWS (Amazon Web Services), VPC stands for Virtual Private Cloud.
+-----------------------------------------------------------------------
+a. Amazon VPC is a logically isolated virtual network that you create in the AWS cloud. It is your own private network space in AWS
+b. Your VPC is like your own private data center within AWS.
+c. No other company can see or access your resources — unless you explicitly allow it.
+
+
+############################################################################
+
+🚫 What happens without a VPC?
+--------------------------------------
+a. Resources like EC2 cannot be launched without being attached to a VPC.
+b. There is no networking layer, so the instance can’t talk to:
+	1. The internet 🌐
+	2. Other services like databases, other EC2s, etc.
+
+---------------------------------------------
+
+###############################
+💡 Key Concepts of VPC:
+###############################
+🌐 What is an IP Address?
+-----------------------------
+An IP Address (Internet Protocol Address) is a unique identifier for a device on a network (like a computer, phone, server, etc.). It's like a postal address — used to send and receive data between devices.
+
+🧩 Types of IP Addresses
+------------------------------
+1. IPv4 (Internet Protocol version 4)
+a. Format: xxx.xxx.xxx.xxx (e.g., 192.168.1.1)
+b. 32-bit address → Around 4.3 billion unique addresses
+c. It is divided inot 4 octets
+
+Note: Most widely used
+
+2. IPv6 (Internet Protocol version 6)
+---------------------------------------------
+a. Format: xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx(eg.  fe80::c1a2:739b:9d8e:b9e2%14)
+b. 128-bit address → Massive number of addresses
+c. Created due to shortage of IPv4 addresses
+
+Note: Use ipconfig in your cmd to see ip details of your machine
+
+📚 What is CIDR?
+----------------------------
+-> CIDR stands for Classless Inter-Domain Routing.
+-> It’s a method for reserving  IP addresses range for a VPC for future allocation to resource for communication between them
+
+📏 What is VPC Sizing?
+---------------------------------
+VPC sizing means choosing the IP address range (CIDR block) for your VPC that fits your current and future needs for AWS resources (EC2, RDS, etc.) within that network.
+
+🧮 CIDR Calculations Explained
+----------------------------------
+
+Example 1: 10.0.0.0/16------>2^(32-16)-----> 2^16----->65,536
+Example 2: 10.0.0.0/24------>2^(32-24)----->2^8------->256
+
+
+
+
+
+
