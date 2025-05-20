@@ -1960,6 +1960,9 @@ Without it, the data wouldn’t know how to reach its destination, just like car
 
 So yes, the route table manages and controls the flow of network traffic 
 
+Note:
+Each subnet must be associated with a route table. However, traffic within the same subnet does not require routing via the route table—instances communicate directly. Route tables are used to route traffic between subnets within a VPC, between VPCs, and from subnets to outside networks
+
 Public Subnet
 ------------------
 A public subnet is a subnet that has a route to the internet via an Internet Gateway (IGW).
