@@ -1981,4 +1981,20 @@ Usually used for backend resources — like databases, application servers, or a
 
 However, instances in private subnets can still access the internet for updates or downloads by routing traffic through a NAT Gateway
 
+🌐 What is an Internet Gateway?
+--------------------------------------
+An Internet Gateway (IGW) is a VPC component that allows communication between your VPC and the internet.
 
+It enables instances in your VPC to:
+
+Send traffic to the internet
+
+Receive traffic from the internet
+
+
+
+🔁 What is a NAT Gateway?
+------------------------------------
+NAT Gateway stands for Network Address Translation Gateway.
+
+It allows instances in a private subnet to access the internet, but prevents the internet from initiating connections back to those instances.
