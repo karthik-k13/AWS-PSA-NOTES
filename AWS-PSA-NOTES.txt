@@ -1882,3 +1882,119 @@ Example:
 http://springboot-env.eba-xxxxxxx.us-east-1.elasticbeanstalk.com
 
 🎉 Your Spring Boot app is now live!
+
+###########################################################################
+VPC: In AWS (Amazon Web Services), VPC stands for Virtual Private Cloud.
+-----------------------------------------------------------------------
+a. Amazon VPC is a logically isolated virtual network that you create in the AWS cloud. It is your own private network space in AWS
+b. Your VPC is like your own private data center within AWS.
+c. No other company can see or access your resources — unless you explicitly allow it.
+d. VPC is a free Service in AWS
+
+
+############################################################################
+
+🚫 What happens without a VPC?
+--------------------------------------
+a. Resources like EC2 cannot be launched without being attached to a VPC.
+b. There is no networking layer, so the instance can’t talk to:
+	1. The internet 🌐
+	2. Other services like databases, other EC2s, etc.
+
+---------------------------------------------
+
+###############################
+💡 Key Concepts of VPC:
+###############################
+🌐 What is an IP Address?
+-----------------------------
+An IP Address (Internet Protocol Address) is a unique identifier for a device on a network (like a computer, phone, server, etc.). It's like a postal address — used to send and receive data between devices.
+
+🧩 Types of IP Addresses
+------------------------------
+1. IPv4 (Internet Protocol version 4)
+a. Format: xxx.xxx.xxx.xxx (e.g., 192.168.1.1)
+b. 32-bit address → Around 4.3 billion unique addresses
+c. It is divided inot 4 octets
+
+Note: Most widely used
+
+2. IPv6 (Internet Protocol version 6)
+---------------------------------------------
+a. Format: xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx(eg.  fe80::c1a2:739b:9d8e:b9e2%14)
+b. 128-bit address → Massive number of addresses
+c. Created due to shortage of IPv4 addresses
+
+Note: Use ipconfig in your cmd to see ip details of your machine
+
+📚 What is CIDR?
+----------------------------
+-> CIDR stands for Classless Inter-Domain Routing.
+-> It’s a method for reserving  IP addresses range for a VPC for future allocation to resource for communication between them
+
+📏 What is VPC Sizing?
+---------------------------------
+VPC sizing means choosing the IP address range (CIDR block) for your VPC that fits your current and future needs for AWS resources (EC2, RDS, etc.) within that network.
+
+🧮 CIDR Calculations Explained
+----------------------------------
+
+Example 1: 10.0.0.0/16------>2^(32-16)-----> 2^16----->65,536
+Example 2: 10.0.0.0/24------>2^(32-24)----->2^8------->256
+
+
+🌐 What is a Subnet?
+--------------------------------
+A subnet (short for subnetwork) is a smaller network segment created by dividing a larger network (like a VPC) into multiple, logically separated pieces.
+
+
+What is Route Table?
+---------------------------
+A route table in a VPC is like the traffic police or traffic controller directing where each packet of data (like a vehicle) should go next:
+
+It looks at the destination (where the data wants to go).
+
+It tells it which “road” or “route” to take (like sending cars to the highway, local streets, or a tunnel).
+
+Without it, the data wouldn’t know how to reach its destination, just like cars without traffic rules would cause chaos.
+
+So yes, the route table manages and controls the flow of network traffic 
+
+Note:
+Each subnet must be associated with a route table. However, traffic within the same subnet does not require routing via the route table—instances communicate directly. Route tables are used to route traffic between subnets within a VPC, between VPCs, and from subnets to outside networks
+
+Public Subnet
+------------------
+A public subnet is a subnet that has a route to the internet via an Internet Gateway (IGW).
+
+Instances (like EC2 servers) in a public subnet can directly communicate with the internet if they have a public IP address.
+
+Typically used for resources that must be accessible from the internet
+
+Private Subnet
+-------------------
+A private subnet is a subnet that does NOT have a direct route to the internet via an Internet Gateway.
+
+Instances in a private subnet cannot be accessed directly from the internet.
+
+Usually used for backend resources — like databases, application servers, or any service you want to keep isolated from direct internet access.
+
+However, instances in private subnets can still access the internet for updates or downloads by routing traffic through a NAT Gateway
+
+🌐 What is an Internet Gateway?
+--------------------------------------
+An Internet Gateway (IGW) is a VPC component that allows communication between your VPC and the internet.
+
+It enables instances in your VPC to:
+
+Send traffic to the internet
+
+Receive traffic from the internet
+
+
+
+🔁 What is a NAT Gateway?
+------------------------------------
+NAT Gateway stands for Network Address Translation Gateway.
+
+It allows instances in a private subnet to access the internet, but prevents the internet from initiating connections back to those instances.
