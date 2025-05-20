@@ -1948,6 +1948,34 @@ Example 2: 10.0.0.0/24------>2^(32-24)----->2^8------->256
 A subnet (short for subnetwork) is a smaller network segment created by dividing a larger network (like a VPC) into multiple, logically separated pieces.
 
 
+What is Route Table?
+---------------------------
+A route table in a VPC is like the traffic police or traffic controller directing where each packet of data (like a vehicle) should go next:
 
+It looks at the destination (where the data wants to go).
+
+It tells it which “road” or “route” to take (like sending cars to the highway, local streets, or a tunnel).
+
+Without it, the data wouldn’t know how to reach its destination, just like cars without traffic rules would cause chaos.
+
+So yes, the route table manages and controls the flow of network traffic 
+
+Public Subnet
+------------------
+A public subnet is a subnet that has a route to the internet via an Internet Gateway (IGW).
+
+Instances (like EC2 servers) in a public subnet can directly communicate with the internet if they have a public IP address.
+
+Typically used for resources that must be accessible from the internet
+
+Private Subnet
+-------------------
+A private subnet is a subnet that does NOT have a direct route to the internet via an Internet Gateway.
+
+Instances in a private subnet cannot be accessed directly from the internet.
+
+Usually used for backend resources — like databases, application servers, or any service you want to keep isolated from direct internet access.
+
+However, instances in private subnets can still access the internet for updates or downloads by routing traffic through a NAT Gateway
 
 
