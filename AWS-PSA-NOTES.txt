@@ -1998,3 +1998,45 @@ Receive traffic from the internet
 NAT Gateway stands for Network Address Translation Gateway.
 
 It allows instances in a private subnet to access the internet, but prevents the internet from initiating connections back to those instances.
+
+###################
+VPC peering
+####################
+
+NACL(Network access control list)
+
+A Network ACL acts as a stateless firewall at the subnet level. It helps manage inbound and outbound traffic rules for resources inside the subnet.
+
+###################################################
+EFS(Elastic file system) uses NFS(Network file system)
+#####################################################
+Amazon Elastic File System (Amazon EFS) provides a simple, scalable, elastic file system for general purpose workloads for use with AWS Cloud services and on-premises resources.
+Amazon EFS is designed to provide massively parallel shared access to thousands of Amazon EC2 instances
+
+when to use S3 
+1. while using http/https for retrieving data
+2. while accessing outside ec2 instances
+3.while storing static data like images/videos etc
+
+when to use EFS
+1. while accessing dynamic data paralelly through multiple  ec2 instances/other resources
+2. while accessing data within resources
+3.eg:configuration files
+
+
+EFS works with underlying protocol called NFS(Network file system) which uses port number 2049 for accessing files
+Note: while creating instances that access EFS,it is mandatory to enable port 2049 of inbound rules in the respective security group 
+
+steps:
+1.SSH into the ec2 instance using gitbash
+2.install efs into ec2 instance using the below command
+  sudo yum install -y amazon-efs-utils
+3.create a directory inside the ec2 instance and mount it to efs using the below command 
+sudo mkdir dir
+sudo mount -t efs -o tls fs-042464f8a17213271:/ dir
+Note: Here,fs-042464f8a17213271 is the file system Id of efs created and dir is the directory name
+
+Do the same with one more ec2 instance created with same vpc and security group
+
+Any changes to the directory in either of the instances will be reflected in the other instance
+
