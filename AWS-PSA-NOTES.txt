@@ -2040,3 +2040,26 @@ Do the same with one more ec2 instance created with same vpc and security group
 
 Any changes to the directory in either of the instances will be reflected in the other instance
 
+
+
+
+############################
+Terraform
+############################
+
+Code to create simple ec2 instance
+use aws configure  for adding access key and secret key 
+provider "aws" {
+  region = "ap-south-1"
+}
+
+resource "aws_instance" "vm_1" {
+
+  ami             = "ami-0f535a71b34f2d44a"
+  instance_type   = "t2.micro"
+  key_name        = "dev-karthik"
+  security_groups = ["default"]
+  tags = {
+    Name = "LinuxVM"
+  }
+}
